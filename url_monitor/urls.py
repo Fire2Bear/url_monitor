@@ -20,6 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'users/', include('users.urls', namespace='users')),
     path(r'pages/', include('pages.urls', namespace='pages')),
-    path(r'requests_logs/', include('requests_logs.urls', namespace='requests_logs')),
+    path(r'verifications/', include('verifications.urls', namespace='verifications')),
 
 ]
