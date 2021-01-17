@@ -1,12 +1,23 @@
 from django.db import models
 
 # Create your models here.
-from users.models import BaseModel
+from users.models import BaseModel, UserProfile
 
 
 class Page(BaseModel):
+
+    user = models.ForeignKey(
+        UserProfile,
+        on_delete=models.CASCADE,
+        verbose_name="Utilisateur",
+        db_index=True,
+        null=False,
+        blank=False,
+        default=None
+    )
+
     title = models.CharField(
-        verbose_name="Titre de la vérification",
+        verbose_name="Nom de la page",
         max_length=255,
         default=None,
         blank=False,

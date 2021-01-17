@@ -6,8 +6,25 @@ from users.models import BaseModel
 
 class VerificationType(BaseModel):
     name = models.CharField(
-        verbose_name="Nom du type de vérification",
+        verbose_name="Type de vérification",
         max_length=255,
+        default=None,
+        blank=False,
+        null=False,
+    )
+
+    description = models.TextField(
+        verbose_name="Description du type de vérification",
+        max_length=1000,
+        default=None,
+        blank=True,
+        null=True,
+    )
+
+    identifiant = models.CharField(
+        verbose_name="Identifiant unique",
+        unique=True,
+        max_length=10,
         default=None,
         blank=False,
         null=False,

@@ -35,8 +35,15 @@ class Verification(BaseModel):
         null=True,
     )
 
+    description = models.TextField(
+        verbose_name="Description",
+        default=None,
+        blank=True,
+        null=True,
+    )
+
     def __str__(self):
-        return self.title
+        return self.page.title + str(self.verification_type)
 
     class Meta:
         verbose_name = "Vérification"
