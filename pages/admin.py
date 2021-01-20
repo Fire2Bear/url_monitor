@@ -6,7 +6,7 @@ from pages.models import Page
 class PageAdmin(admin.ModelAdmin):
     list_display = ('user', 'title', 'url', )
     list_filter = ['user__username', ]
-    list_editable = []
+    list_editable = ['title', 'url', ]
     search_fields = ['user__username', 'title', 'url', ]
 
 

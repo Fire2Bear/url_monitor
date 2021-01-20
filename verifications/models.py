@@ -43,7 +43,7 @@ class Verification(BaseModel):
     )
 
     def __str__(self):
-        return self.page.title + str(self.verification_type)
+        return self.page.title + " " + str(self.verification_type)
 
     class Meta:
         verbose_name = "Vérification"
