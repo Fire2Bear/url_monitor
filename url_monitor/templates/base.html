@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>{% block title %}Url Monitor{% endblock title %}</title>
 
@@ -14,31 +14,64 @@
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
 
     {% block head_end %}{% endblock head_end %}
-  </head>
+</head>
 
-  <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">URL Monitor</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">URL Monitor</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'admin:index' %}">Admin Django</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'pages:page_list' %}">Pages</a>
+            </li>
+        </ul>
+        {% if user.is_authenticated %}
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'users:logout' %}">Déconnexion</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'users:myaccount' %}">{{ user }}</a>
+                </li>
+            </ul>
+        {% else %}
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'users:login' %}">Connexion</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'users:register' %}">Inscription</a>
+                </li>
+            </ul>
+        {% endif %}
 
 
-      </div>
-    </nav>
+    </div>
+</nav>
 
-    {% block body_header %}{% endblock body_header %}
-    <main role="main" class="container" style="padding-top:60px;">
+{% block body_header %}{% endblock body_header %}
+<main role="main" class="container" style="padding-top:60px;">
 
-      <div class="starter-template">
+    <div class="starter-template">
         {% block content %}{% endblock content %}
-      </div>
+    </div>
 
-    </main>
+</main>
 
-    {% block body_footer %}{% endblock body_footer %}
+{% block body_footer %}{% endblock body_footer %}
 
-  </body>
+</body>
 </html>

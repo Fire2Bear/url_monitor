@@ -13,13 +13,11 @@ class Page(BaseModel):
         db_index=True,
         null=False,
         blank=False,
-        default=None
     )
 
     title = models.CharField(
         verbose_name="Nom de la page",
         max_length=255,
-        default=None,
         blank=False,
         null=False,
     )
@@ -27,7 +25,6 @@ class Page(BaseModel):
     url = models.CharField(
         verbose_name="Url à vérifier",
         max_length=255,
-        default=None,
         blank=False,
         null=False,
     )

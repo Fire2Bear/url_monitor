@@ -21,5 +21,6 @@ urlpatterns = [
     path(r'users/', include('users.urls', namespace='users')),
     path(r'pages/', include('pages.urls', namespace='pages')),
     path(r'verifications/', include('verifications.urls', namespace='verifications')),
+    path(r'verification_results/', include('verification_results.urls', namespace='verification_results')),
 
 ]

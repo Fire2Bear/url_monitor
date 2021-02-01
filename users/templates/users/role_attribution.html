@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title_html %}
+Connexion
+{% endblock %}
+{% block content %}
+<h2>Attribution de rôle</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">
+                Membre d'équipe
+            </th>
+            <th scope="col">
+                Client
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user_role in users %}
+        <tr>
+            <th scope="row">{{ user_role.username }}</th>
+            <td>{{ user_role.email }}</td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'users:role_attribution_teammember' user_id=user_role.id %}" role="button">Membre d'équipe ?</a>
+            </td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'users:role_attribution_customer' user_id=user_role.id %}" role="button">Client ?</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

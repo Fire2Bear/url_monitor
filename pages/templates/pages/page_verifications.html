@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title_html %}
+    Liste des vérifications
+{% endblock %}
+{% block content %}
+    <a class="btn btn-primary btn-block" href="{% url 'verifications:new_verification' %}" role="button">Nouvelle vérification</a>
+
+    <h2>Liste des vérification pour : {{ page }}</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Option</th>
+                <th scope="col">Description</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for verification in page.verification_set.all %}
+            <tr>
+                <td >{{ verification.verification_type }}</td>
+                <td >{{ verification.verification_option }}</td>
+                <td >{{ verification.description }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title_html %}
+    Liste des pages
+{% endblock %}
+{% block content %}
+
+    <h2>Résultats de vérification</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Type</th>
+            <th scope="col">Option</th>
+            <th scope="col">Succès</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for verification_result in verification_results %}
+            <tr >
+                <th scope="row">{{ verification_result.date }}</th>
+                <td >{{ verification_result.verification.verification_type }}</td>
+                <td >{% if verification_result.success %}
+                    ✅
+                {% else %}
+                    ❌
+                {% endif %}
+                </td>
+                <td >{{ verification_result.description }}</td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

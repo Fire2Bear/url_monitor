@@ -13,8 +13,6 @@ class BaseModel(models.Model):
 
 class UserProfile(AbstractUser, BaseModel):
 
-
-
     def __str__(self):
         return self.username
 

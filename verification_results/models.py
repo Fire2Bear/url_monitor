@@ -12,12 +12,10 @@ class VerificationResult(BaseModel):
         db_index=True,
         null=False,
         blank=False,
-        default=None
     )
 
     success = models.BooleanField(
         verbose_name="Succès",
-        default=None,
         blank=False,
         null=False,
     )

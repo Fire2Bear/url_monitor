@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title_html %}
+    Liste des pages
+{% endblock %}
+{% block content %}
+    <a class="btn btn-primary btn-block" href="{% url 'pages:new_page' %}" role="button">Nouvelle page</a>
+
+    <h2>Vos pages</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Page</th>
+            <th scope="col">url</th>
+            <th scope="col">action</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for page in pages %}
+            <tr >
+                <th scope="row">{{ page }}</th>
+                <td >{{ page.url }}</td>
+                <td>
+                    <a href="{% url 'pages:page_verifications' page.id %}"> 👁 </a>
+                    <a href="{% url 'pages:delete_page' page.id %}"> 🗑 </a>
+                    <a href="{% url 'verification_results:verification_results_by_page' page.id %}"> ⛅ </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

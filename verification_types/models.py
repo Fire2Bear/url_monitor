@@ -8,7 +8,6 @@ class VerificationType(BaseModel):
     name = models.CharField(
         verbose_name="Type de vérification",
         max_length=255,
-        default=None,
         blank=False,
         null=False,
     )

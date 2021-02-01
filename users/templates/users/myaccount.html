@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title_html %}
+    Paramétrer mon compte
+{% endblock %}
+{% block content %}
+<h2>Mon compte</h2>
+<a href="{% url 'users:account_settings'%}">Paramétrer mon compte</a>
+{% endblock content %}

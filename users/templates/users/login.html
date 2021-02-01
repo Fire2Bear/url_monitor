@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title_html %}
+    Connexion
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Connexion</h5>
+                        <form class="form-signin" method="post" action="{% url 'users:login' %}">
+                            {% csrf_token %}
+                            <div class="form-label-group">
+                                <label for="username">Nom d'utilisateur ou email</label>
+                                <input type="text" name="username" class="form-control" placeholder="Nom d'utilisateur ou email" required autofocus>
+                            </div>
+                            <br />
+                            <div class="form-label-group">
+                                <label for="password">Mot de passe</label>
+                                <input type="password" name="password" class="form-control" placeholder="Mot de passe" required>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block bg_main" type="submit">Connexion</button>
+                            {% if auth_error %}
+                                <div class="alert alert-danger" role="alert">
+                                    Nom d'utilisateur ou mot de passe incorrect
+                                </div>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

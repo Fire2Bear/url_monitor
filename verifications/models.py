@@ -14,7 +14,6 @@ class Verification(BaseModel):
         db_index=True,
         null=False,
         blank=False,
-        default=None
     )
 
     verification_type = models.ForeignKey(
@@ -24,13 +23,11 @@ class Verification(BaseModel):
         db_index=True,
         null=False,
         blank=False,
-        default=None
     )
 
     verification_option = models.CharField(
         verbose_name="Option de vérification",
         max_length=255,
-        default=None,
         blank=True,
         null=True,
     )
