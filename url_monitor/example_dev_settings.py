@@ -135,3 +135,12 @@ LOGIN_URL = 'users:login'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_PASSWORD = ""
+
+EMAIL_HOST_USER = ""
+
+EMAIL_PORT = "465"
+
+EMAIL_USE_SSL = True
