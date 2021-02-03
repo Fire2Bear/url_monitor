@@ -14,4 +14,4 @@ python manage.py migrate
 Pour que l'application fonctionne on doit tout d'abord ajouter 
 via l'interface d'administration Django les 3 types de vérification
 actuellement développés. 
-Un type pour chaque Identifiant unique (HTTP, TXT, TIME)
+Un type pour chaque Identifiant unique (HTTP, TXT, TIME, CERT-EXPIR, CERT-VALID)

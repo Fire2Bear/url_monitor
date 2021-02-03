@@ -15,6 +15,7 @@ class VerificationResultAdmin(admin.ModelAdmin):
                      'verification__verification_type__name',
                      'verification__verification_option',
                      ]
+    ordering = ("-date", "verification__page", "success")
 
 
 admin.site.register(VerificationResult, VerificationResultAdmin)
